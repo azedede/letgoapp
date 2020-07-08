@@ -1,0 +1,48 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+    name: morder-depl
+spec:
+  replicas: 1
+  selector:
+      matchLabels:
+        app: morder
+  template:
+    metadata:
+        labels:
+            app: morder
+    spec:
+      containers:
+          - name: morder
+            image: tohshine/morder
+            
+            env:
+              - name: MONGO_URL
+                value: mongodb://morder-mongo-srv:27017/morder
+              - name: NAT_CLUSTER_ID
+                value: market
+              - name: NAT_URL
+                value: 'http://nats-srv:4222'
+              - name: NAT_CLIENT_ID
+                valueFrom:
+                  fieldRef:
+                    fieldPath: metadata.name
+              - name: JWT_KEY
+                valueFrom:
+                  secretKeyRef:
+                    name: jwt-secret
+                    key: JWT_KEY
+---
+apiVersion: v1
+kind: Service
+metadata:
+   name: morder-srv
+spec:
+   selector:
+    app: morder
+   ports:
+    - name: morder
+      protocol: TCP
+      port: 3000
+      targetPort: 3000   
+

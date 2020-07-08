@@ -1,0 +1,53 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+    name: mprofile-depl
+spec:
+  replicas: 1
+  selector:
+      matchLabels:
+        app: mprofile
+  template:
+    metadata:
+        labels:
+            app: mprofile
+    spec:
+      containers:
+          - name: mprofile
+            image: tohshine/mprofile
+            
+            env:
+              - name: MONGO_URL
+                value: mongodb://mprofile-mongo-srv:27017/mprofile
+              - name: NAT_CLUSTER_ID
+                value: market
+              - name: NAT_URL
+                value: 'http://nats-srv:4222'
+              - name: NAT_CLIENT_ID
+                valueFrom:
+                  fieldRef:
+                    fieldPath: metadata.name
+              - name: JWT_KEY
+                valueFrom:
+                  secretKeyRef:
+                    name: jwt-secret
+                    key: JWT_KEY
+              - name: CLOUD_KEY
+                valueFrom:
+                  secretKeyRef:
+                    name: cloudinary-secret
+                    key: CLOUD_KEY    
+---
+apiVersion: v1
+kind: Service
+metadata:
+   name: mprofile-srv
+spec:
+   selector:
+    app: mprofile
+   ports:
+    - name: mprofile
+      protocol: TCP
+      port: 3000
+      targetPort: 3000   
+

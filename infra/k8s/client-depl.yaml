@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+    name: mclient-depl
+spec:
+  replicas: 1
+  selector:
+      matchLabels:
+        app: mclient
+  template:
+    metadata:
+        labels:
+            app: mclient
+    spec:
+      containers:
+          - name: mclient
+            image: tohshine/mclient
+        
+---
+apiVersion: v1
+kind: Service
+metadata:
+   name: mclient-srv
+spec:
+   selector:
+    app: mclient
+   ports:
+    - name: mclient
+      protocol: TCP
+      port: 3000
+      targetPort: 3000   
+

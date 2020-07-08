@@ -1,0 +1,27 @@
+{
+  "name": "depl-order",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "ts-node-dev --poll src/index.ts"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@localmarket/common": "^1.0.26",
+    "@types/express": "^4.17.6",
+    "@types/mongoose": "^5.7.21",
+    "consola": "^2.12.2",
+    "express": "^4.17.1",
+    "express-async-errors": "^3.1.1",
+    "express-validator": "^6.5.0",
+    "mongoose": "^5.9.16",
+    "mongoose-update-if-current": "^1.4.0",
+    "node-nats-streaming": "^0.3.2",
+    "paystack": "^2.0.1",
+    "ts-node-dev": "^1.0.0-pre.44",
+    "typescript": "^3.9.3"
+  }
+}

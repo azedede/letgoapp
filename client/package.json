@@ -1,0 +1,39 @@
+{
+  "name": "client",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build:css": "tailwind build styles/styles.css -o dist/style.css",
+    "dev": "next",
+    "build": "next build",
+    "start": "next start"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "animate.css": "^4.1.0",
+    "antd": "^4.3.2",
+    "aos": "^2.3.4",
+    "axios": "^0.19.2",
+    "cloudinary": "^1.22.0",
+    "cloudinary-react": "^1.5.1",
+    "express-fileupload": "^1.1.7-alpha.3",
+    "next": "^9.4.4",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-error-boundary": "^2.2.3",
+    "react-infinite-scroll-component": "^5.0.5",
+    "react-paystack": "^3.0.1",
+    "react-redux": "^7.2.0",
+    "redux": "^4.0.5",
+    "redux-devtools-extension": "^2.13.8",
+    "redux-persist": "^6.0.0",
+    "redux-thunk": "^2.3.0",
+    "styled-components": "^5.1.1"
+  },
+  "devDependencies": {
+    "postcss-preset-env": "^6.7.0",
+    "tailwindcss": "^1.4.6"
+  }
+}

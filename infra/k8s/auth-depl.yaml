@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+    name: mauth-depl
+spec:
+  replicas: 1
+  selector:
+      matchLabels:
+        app: mauth
+  template:
+    metadata:
+        labels:
+            app: mauth
+    spec:
+      containers:
+          - name: mauth
+            image: tohshine/mauth
+            
+            env:
+              - name: MONGO_URL
+                value: mongodb://mauth-mongo-srv:27017/mauth
+              - name: JWT_KEY
+                valueFrom:
+                  secretKeyRef:
+                    name: jwt-secret
+                    key: JWT_KEY
+---
+apiVersion: v1
+kind: Service
+metadata:
+   name: mauth-srv
+spec:
+   selector:
+    app: mauth
+   ports:
+    - name: mauth
+      protocol: TCP
+      port: 3000
+      targetPort: 3000   
+

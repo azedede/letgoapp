@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mauth-mongo-depl
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mauth-mongo
+  template:
+    metadata:
+      labels:
+        app: mauth-mongo
+    spec:
+      containers:
+        - name: mauth-mongo
+          image: mongo
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: mauth-mongo-srv
+spec:
+  selector:
+    app: mauth-mongo
+  ports:
+    - name: db
+      protocol: TCP
+      port: 27017
+      targetPort: 27017

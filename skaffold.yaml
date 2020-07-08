@@ -1,0 +1,59 @@
+apiVersion: skaffold/v2beta4
+kind: Config
+deploy:
+  kubectl:
+    manifests:
+      - ./infra/**/* # means select all yaml file from  any folder created inside infra folder and deploy
+build:
+  local:
+    push: false
+  artifacts:
+    - image: tohshine/mprofile
+      context: profile
+      docker:
+        dockerfile: Dockerfile
+      sync:
+        manual:
+          - src: "src/**/*.ts"
+            dest: .
+    - image: tohshine/mauth
+      context: auth
+      docker:
+        dockerfile: Dockerfile
+      sync:
+        manual:
+          - src: "src/**/*.ts"
+            dest: .
+    - image: tohshine/mproduct
+      context: product
+      docker:
+        dockerfile: Dockerfile
+      sync:
+        manual:
+          - src: "src/**/*.ts"
+            dest: .
+    - image: tohshine/morder
+      context: order
+      docker:
+        dockerfile: Dockerfile
+      sync:
+        manual:
+          - src: "src/**/*.ts"
+            dest: .
+    - image: tohshine/mexpiration
+      context: expiration
+      docker:
+        dockerfile: Dockerfile
+      sync:
+        manual:
+          - src: "src/**/*.ts"
+            dest: .
+    - image: tohshine/mclient
+      context: client
+      docker:
+          dockerfile: Dockerfile
+      sync:
+        manual:
+          - src: "**/*.jsx"
+            dest: .
+          

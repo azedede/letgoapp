@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+    name: mprofile-mongo-depl
+spec:
+  replicas: 1
+  selector:
+      matchLabels:
+        app: mprofile-mongo
+  template:
+    metadata:
+        labels:
+            app: mprofile-mongo
+    spec:
+      containers:
+          - name: mprofile-mongo
+            image: mongo
+---
+apiVersion: v1
+kind: Service
+metadata:
+   name: mprofile-mongo-srv
+spec:
+   selector:
+    app: mprofile-mongo
+   ports:
+    - name: db
+      protocol: TCP
+      port: 27017
+      targetPort: 27017   
+

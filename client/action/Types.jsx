@@ -1,0 +1,9 @@
+export const ALL_PRODUCT = 'ALL_PRODUCT'
+export const DELETE_PRODUCT= 'DELETE_PRODUCT'
+export const FILTER_PRODUCT = "FILTER_PRODUCT"
+export const CLEAR_FILTER = "CLEAR_FILTER"
+
+export const RETURN_MESSAGE = 'RETURN_MESSAGE'
+export const CLEAR_MESSAGE = 'CLEAR_MESSAGE'
+
+export const AGREEMENT = "AGREEMENT"

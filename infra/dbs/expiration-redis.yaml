@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+    name: mexpiration-redis-depl
+spec:
+  replicas: 1
+  selector:
+      matchLabels:
+        app: mexpiration-redis
+  template:
+    metadata:
+        labels:
+            app: mexpiration-redis
+    spec:
+      containers:
+          - name: mexpiration-redis
+            image: redis
+---
+apiVersion: v1
+kind: Service
+metadata:
+   name: mexpiration-redis-srv
+spec:
+   selector:
+    app: mexpiration-redis
+   ports:
+    - name: db
+      protocol: TCP
+      port: 6379
+      targetPort: 6379   
+
