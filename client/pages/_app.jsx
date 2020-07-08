@@ -10,7 +10,7 @@ import { store, persistor } from "../store";
 import { Provider } from "react-redux";
 import { Spin, Space } from "antd";
 import Notification from "../component/errors/response-message";
-import Footer from '../component/footer/footer'
+import Footer from "../component/footer/footer";
 
 const AppComponent = ({
   Component,
@@ -38,7 +38,7 @@ const AppComponent = ({
         <div className='select-none font-bold '>
           <Notification />
           <Component currentuser={currentuser} {...pageProps} />
-          <Footer/>
+          <Footer />
         </div>
       </PersistGate>
     </Provider>
