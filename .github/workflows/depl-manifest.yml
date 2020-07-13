@@ -18,4 +18,5 @@ jobs:
       - run: doctl kubernetes cluster kubeconfig save sellit
       - run: |
          kubectl apply -f infra/k8s
-         kubectl apply -f infra/dbs  
+         kubectl apply -f infra/dbs
+         kubectl apply -f infra/k8s/prod  
