@@ -1,0 +1,26 @@
+name: deploy-client
+
+on:
+  push:
+    branches: 
+      - master
+    paths:
+      - 'client/**'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2 #it copy all current repository  folder
+      - run: cd client && docker build -t tohshine/mclient .
+      - run: docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
+        env:
+          DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
+          DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
+      - run: docker push tohshine/mauth
+      - uses: digitalocean/action-doctl@v2 #it preinstall digital ocean CLI inside github containers 
+        with:
+          token:  ${{secrets.DIGITAL_OCCEAN_ACCESS_TOKEN}}
+      - run: doctl kubernetes cluster kubeconfig save sellit
+      - run: kubectl rollout restart deployment mclient-depl  
+      
