@@ -20,5 +20,7 @@ jobs:
       - run: docker push tohshine/auth
       - uses: digitalocean/action-doctl@v2 #it preinstall digital ocean CLI inside github containers 
         with:
-          token:  
+          token:  ${{secrets.DIGITAL_OCCEAN_ACCESS_TOKEN}}
+      - run: doctl kubernetes cluster kubeconfig save sellit
+      - run: kubectl rollout restart deployment mauth-depl  
       
