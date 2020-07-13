@@ -3,7 +3,9 @@ kind: Config
 deploy:
   kubectl:
     manifests:
-      - ./infra/**/* # means select all yaml file from  any folder created inside infra folder and deploy
+      - ./infra/k8s/* # means select all yaml file from  any folder created inside infra folder and deploy
+      - ./infra/dbs/*
+      - ./infra/k8s-dev/*
 build:
   local:
     push: false
