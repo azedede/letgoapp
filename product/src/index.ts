@@ -61,6 +61,7 @@ app.all("*", () => {
 app.use(errorHandler);
 
 const start = async () => {
+  console.log('starting ....');
   
   if (!process.env.JWT_KEY) {
     throw new Error("env token is not created");
