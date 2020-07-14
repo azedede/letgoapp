@@ -70,7 +70,7 @@ const start = async () => {
     throw new Error("env mongodb url is not created");
   }
 
-  if (!process.env.NAT_URL) { 
+  if (!process.env.NAT_URL) {  
     throw new Error("env nat url is not created");
   }
   if (!process.env.NAT_CLUSTER_ID) {
