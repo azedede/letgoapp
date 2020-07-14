@@ -25,7 +25,7 @@ app.use(json());
 //image fileupload middleware
 app.use(
   fileUploader({
-    useTempFiles: true, 
+    useTempFiles: true,  
   })
 );
  

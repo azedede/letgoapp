@@ -43,7 +43,7 @@ app.use(
 );
 
 //global current logged user 
-app.use(currentUser); 
+app.use(currentUser);  
 
 //incoming route
 app.use(newProductRouter);

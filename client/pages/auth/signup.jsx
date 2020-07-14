@@ -10,7 +10,7 @@ const Signup = (props) => {
     name:"",
     email: "",
     password: "",
-    password2: "",
+    password2: "", 
   });
   const { returnMessage, message } = props;
 
