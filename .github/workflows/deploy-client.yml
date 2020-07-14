@@ -17,7 +17,7 @@ jobs:
         env:
           DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
           DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
-      - run: docker push tohshine/mauth
+      - run: docker push tohshine/mclient
       - uses: digitalocean/action-doctl@v2 #it preinstall digital ocean CLI inside github containers 
         with:
           token:  ${{secrets.DIGITAL_OCCEAN_ACCESS_TOKEN}}
