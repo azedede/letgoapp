@@ -10,7 +10,7 @@ export default ({ req }) => {
         */
 
     return axios.create({
-      baseURL:"http://www.tohshine.me"
+      baseURL:"http://www.tohshine.me/"
        
       headers: req.headers,
     });
