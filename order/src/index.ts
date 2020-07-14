@@ -33,7 +33,7 @@ app.use(
   cookieSession({ 
     signed: false,
     secure: false,  
-  })
+  }) 
 );
 
 //global current logged user

@@ -76,7 +76,7 @@ const Signin = ({ message, returnMessage, currentuser,ctx }) => {
                   <label htmlFor='email' className='text-gray-500 font-bold'>
                     Email
                   </label>
-                  <input
+                  <input 
                     onChange={onChange}
                     name='email'
                     type='email'
