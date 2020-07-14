@@ -13,6 +13,7 @@ router.get(
   "/api/order/:orderId",
   requireAuth,
 
+  
   async (req: Request, res: Response) => {
     const order = await Order.findById(req.params.orderId).populate("product");
     if (!order) throw new BadRequestError("order not found");

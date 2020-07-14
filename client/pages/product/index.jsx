@@ -12,7 +12,7 @@ const Index = ({
   allProduct,
   clearFilter,
   filterProduct,
-  searchProduct,
+  searchProduct, 
 }) => {
   const [search, setsearch] = useState(null);
   useEffect(() => {
