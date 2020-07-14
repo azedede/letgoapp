@@ -5,6 +5,8 @@ import { OrderCreatedEvent } from "./event/listener/order-created-listener";
 import { natConnection } from "./nat-wrapper";
 
 const start = async () => {
+  console.log('stating...');
+  
   //env variable checks
 
   if (!process.env.NAT_CLIENT_ID)
