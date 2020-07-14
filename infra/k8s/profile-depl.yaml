@@ -13,7 +13,7 @@ spec:
             app: mprofile
     spec:
       containers:
-          - name: mprofile
+          - name: mprofile 
             image: tohshine/mprofile
             
             env:

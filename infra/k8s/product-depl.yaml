@@ -13,7 +13,7 @@ spec:
             app: mproduct
     spec:
       containers:
-          - name: mproduct
+          - name: mproduct 
             image: tohshine/mproduct
             
             env:
