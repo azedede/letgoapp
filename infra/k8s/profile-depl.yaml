@@ -36,7 +36,7 @@ spec:
                 valueFrom:
                   secretKeyRef:
                     name: cloudinary-secret
-                    key: CLOUD_KEY    
+                    key: CLOUD_KEY 
 ---
 apiVersion: v1
 kind: Service
