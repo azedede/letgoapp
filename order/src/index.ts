@@ -30,7 +30,7 @@ app.use(json());
 
 //req session middleware
 app.use(
-  cookieSession({
+  cookieSession({ 
     signed: false,
     secure: false,  
   })

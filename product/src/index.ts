@@ -42,7 +42,7 @@ app.use(
   })
 );
 
-//global current logged user
+//global current logged user 
 app.use(currentUser);
 
 //incoming route
